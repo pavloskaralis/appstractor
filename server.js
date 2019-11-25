@@ -6,7 +6,7 @@ const methodOverride = require('method-override');
 const appstractorController = require('./controllers/appstractor.js');
 
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb://heroku_0thh8tzc:B1u3m00n98135!@ds249008.mlab.com:49008/heroku_0thh8tzc';
+const mongoURI = 'mongodb://<dbuser>:<dbpassword>@ds249008.mlab.com:49008/heroku_0thh8tzc' + 'appstraction';
 
 app.use(express.static('public'));
 app.use(methodOverride('_method'));

@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 const methodOverride = require('method-override');
-// const mongoose = require('./db/heroku.js')
+const mongoose = require('./db/heroku.js')
 const appstractorController = require('./controllers/appstractor.js');
 
 app.use(express.static('public'));

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- capture chrome has cache issue -->
+    <!-- <meta http-equiv="Cache-control" content="no-cache"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Saved</title>
+    <!-- style must be in body to render html download -->
+    <style>
+        html, body, #overlay, .top-canvas, .bottom-canvas, .background-canvas {
+            width: 3600px;
+            height: 2400px; 
+            margin: 0;
+            position: absolute;
+        }
+
+        .top-canvas {
+            display: flex; 
+            flex-wrap: wrap-reverse;
+            flex-direction: row;
+            z-index: 5;
+            justify-content: flex-end; 
+        }
+            
+        .bottom-canvas { 
+            z-index: 4;
+            display: flex; 
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .background-canvas {
+            z-index: 3; 
+            background-position: center;
+            background-size: 100% 100%; 
+        }
+
+        .block {
+            display: flex; 
+        }
+    </style>
+</head>
+<body id="old" style="display: none">
+    <!-- necessary to pass data to script -->
+    <div id="dom">
+        <%= doc.dom %>
+    </div>
+    <script>
+        //too short to use class
+        const renderSaved = () => {
+            //create a new body; jQuery causes non-disruptive error
+            const parse = document.createElement('body');
+            //set new body's html via .text() to parse data string 
+            $(parse).html($('#dom').text());
+            //remove <script> from new body 
+            $(parse).children().eq(3).remove();
+            //add new body; jQuery causes non-disruptive error
+            document.querySelector('html').appendChild(parse);
+            //remove initial body
+            $('#old').remove();
+        }
+        renderSaved();
+    </script>
+</body>
+
+</html>

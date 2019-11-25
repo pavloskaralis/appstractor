@@ -1,0 +1,74 @@
+/* this file styles pop up content*/
+
+#edit-panel, #shared-panel {
+    display: none;
+}
+
+#load-bar-container {
+    display: none;
+    position: absolute;
+    height: 5%;
+    width: 50%;
+    top: 48.5%; 
+    left:  25%;
+    z-index: 1;
+    background:rgba(5,10,15);
+    border: 4px double white; 
+}
+
+#load-bar{
+    pointer-events: none;
+    width: 0%;
+    height: 100%;
+    background-image: linear-gradient(
+        to right, 
+        rgb(255, 230, 0) 30%, 
+        rgb(255, 105, 170) 70%)
+    ;
+}
+
+.load {
+    animation-name: load;
+    /* capture chrome interupts after 6 seconds */
+    animation-duration: 7.5s;
+    animation-timing-function: linear;
+}
+
+#shared-input {
+    position: absolute;
+    text-align: center;
+    align-self: center;
+    background-color: white; 
+    box-sizing: border-box;
+    left: calc(50% - 80px);
+    top: 40px; 
+    width: 160px; 
+    height: 30px; 
+    border-radius: 5px;
+}
+
+#shared-input:focus {
+    border: rgb(255, 105, 170) 2px solid;
+    outline: none;
+}
+
+
+
+@keyframes load {
+    0%{width: 0%;}
+    100%{width: 100%;}
+}
+
+@media (min-width: 768px) {
+    #shared-input {
+        left: calc(50% - 120px);
+        width: 240px; 
+    }
+}
+
+@media (min-width: 992px) { 
+    #shared-input {
+        left: calc(50% - 180px);
+        width: 360px; 
+    }
+}

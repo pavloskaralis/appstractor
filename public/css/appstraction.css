@@ -1,0 +1,47 @@
+/* this file stylizes appstraction script (blank.ejs) */
+html, body, .top-canvas, .bottom-canvas, .background-canvas {
+    width: 3600px;
+    height: 2400px; 
+    margin: 0;
+    position: absolute;
+}
+
+.top-canvas {
+    display: flex; 
+    flex-wrap: wrap-reverse;
+    flex-direction: row;
+    z-index: 5;
+    justify-content: flex-end; 
+}
+    
+.bottom-canvas { 
+    z-index: 4;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.background-canvas {
+    z-index: 3; 
+    background-position: center;
+    background-size: cover; 
+}
+
+.show {
+    animation-name: show;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in;
+}
+
+@keyframes show {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+.block {
+    display: flex;  
+}
+
+
+
+

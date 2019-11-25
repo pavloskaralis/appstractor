@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Appstractor Interface</title>
+    <link rel="stylesheet" href="/../css/main.css">
+    <link rel="stylesheet" href="/../css/iframe.css">
+    <link rel="stylesheet" href="/../css/popups.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Will need to take in username to pass to saved file -->
+    <!-- fixed navigation-->
+    <div class="nav-container">
+        <nav>
+            <a href="/appstractor" class="logo-icon">&nbspA&nbsp</a>
+            <a href="/appstractor/new" class="active">Render</a>    
+            <a href="/appstractor/show">Gallery</a>    
+            <a href="#">Sign Out</a>
+        </nav>
+    </div>
+    <!-- relative iframe -->
+    <div class="filler nav-container"></div>
+    <div class="iframe-container" id="canvas">
+        <iframe src="/appstractor/blank"></iframe> 
+    </div>
+    <div class="filler buttons-container"></div>
+    <!-- fixed navigation -->
+    <div class="buttons-container">
+        <div class="buttons">
+            <div class="button" id="link">
+                <img src="/../images/link.png" class="button-image">
+                <div class="button-text"> Link </div>            
+            </div>   
+            <div class="button" id="search">
+                <img src="/../images/search.png" class="button-image">
+                <div class="button-text"> Search </div>            
+            </div>   
+            <div class="button" id="render" style='opacity: .5; pointer-events: none'>
+                <img src="/../images/render.png" class="button-image">
+                <div class="button-text"> Render </div>
+            </div>      
+            <div class="button" id="detail" style='opacity: .5; pointer-events: none'>
+                <img src="/../images/detail.png" class="button-image"> 
+                <div class="button-text"> Detail </div>
+            </div> 
+            <div class="button" id="shadow" style='opacity: .5; pointer-events: none'>
+                <img src="/../images/shadow.png" class="button-image">
+                <div class="button-text"> Shadow </div>
+            </div>  
+            <form action="/appstractor/blank" method="POST" class="button-form">
+                <!-- value assigned via jQuery within iframe script -->
+                <input type="text" name="user" class="input-hide" id="user-input">
+                <input type="text" name="dom" class="input-hide" id="dom-input">
+                <button type="submit" class="button" id="save" style='opacity: .5; pointer-events: none'>
+                    <img src="/../images/save.png" class="button-image">
+                    <div class="button-text"> Save </div>
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- pop up navigation -->
+    <div class="buttons-container" id="shared-panel">
+        <div class="buttons">
+            <div class="button" id="back">
+                <img src="/../images/back.png" class="button-image"> 
+                <div class="button-text"> Back </div>
+            </div> 
+            <div class="filler" style="width:105px"></div>
+            <form class="button-form" id="shared-form">
+                <input type="text" id="shared-input">
+                <button type="submit" class="button" id="submit-search">
+                    <img src="/../images/submit.png" class="button-image">
+                    <div class="button-text"> Submit </div>
+                </button>
+            </form>
+        </div>
+    </div>  
+    <!-- absolute bg image -->
+    <div class="overlay-color"></div>
+    <div class="overlay-image"></div>
+</body>
+</html>

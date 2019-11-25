@@ -1,0 +1,215 @@
+/* this file styles elements found on multiple pages */
+html {
+    height: 100%;
+    background-color: black;
+}
+
+body {
+    margin: 0;
+    min-height: 100%; 
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Background */
+/* Fixed for scrolling */
+.overlay-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh; 
+    background-image: url('/../images/bg.jpg');
+    background-position: top;
+    background-size: cover; 
+    opacity: .225;
+}
+
+.overlay-color {
+    background-color: rgb(25,30,35); 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh; 
+}
+
+
+
+/* Bars */
+/* Fixed for scrolling */
+.nav-container, .buttons-container, .alt-buttons-container {
+    box-sizing: border-box;
+    width: 100vw; 
+    display: flex;
+    justify-content: center;
+    min-height: 40px;
+    border-top: 1px solid black;   
+    border-bottom: 1px solid black;
+    background-image: linear-gradient(
+        to top,
+        rgba(20,25,30) 5%, 
+        rgba(5,10,15) 10%,
+        rgba(15,20,25)
+    );  
+    position: fixed;
+}
+
+.nav-container {
+    top: 0; 
+    z-index: 4;
+}
+
+    nav {
+        width: 100vw; 
+        max-width: 992px;
+        margin-bottom: 1px; 
+        display: flex; 
+        justify-content: space-between;
+    }
+
+    /* home page nav icon */
+    .logo-icon{
+        color: white; 
+        align-self: initial;
+        text-align: left;
+        padding-right: 20px; 
+        font-size: 16px;
+        margin-top: 2px; 
+        text-shadow: 
+            -9px 0 rgb(255, 230, 0),
+            9px 0 rgb(255, 105, 170);
+    }
+    .logo-icon:hover {
+        text-shadow: 
+            -9px 0 rgb(255, 105, 170),
+            9px 0 rgb(255, 105, 170);
+    }
+
+    a, .button {
+        color: rgb(255, 230, 0);
+        font-family: Helvetica;
+        text-transform: capitalize;
+        text-decoration: none; 
+        padding: 10px 20px;
+        align-self: center;
+        font-size: 14px; 
+        text-align: center;
+    }
+
+    a:hover, .button:hover {
+        color: rgb(255, 105, 170);
+        transition: .5s; 
+    }
+
+    /* nav link of current page */
+    .active  {
+        color: white;
+    }
+
+.buttons-container {
+    z-index: 3;
+    min-height: 240px; 
+    background-image: linear-gradient(
+        to bottom,
+        rgba(20,25,30) 2%, 
+        rgba(5,10,15) 4%,
+        rgba(5,10,15)
+    ); 
+    bottom: 0; 
+}
+
+    .buttons {
+        flex-wrap: wrap;
+        max-width: 500px;
+        width: 100vw;
+        display: flex; 
+        justify-content: space-evenly;
+    }
+
+    .button {
+        display: flex;
+        flex-direction: column;
+        max-width: 87px; 
+        margin: 0 20px; 
+        margin-top: 7px; 
+        border: rgba(5,10,15) 1px solid;
+        border-radius: 5px; 
+        box-sizing: border-box;
+        background-color: rgba(0,0,0,0);
+        outline: none; 
+    }
+
+    .button-image {
+        width: 45px;
+        height: 45px; 
+        align-self: center; 
+        background-size: cover;
+        margin-bottom: 10px;
+        opacity: .98;
+    }
+
+    .button-text {
+        align-self: center;
+    }
+
+    .button:hover {
+        border: 1px rgb(255, 105, 170) solid;
+        cursor: pointer;
+    }
+
+/* Aligns content between Bars */
+.filler {
+    z-index: 1;
+    position: relative;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0;
+}
+
+/* Transforms button into input form */
+.button-form {
+    align-self: center;
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+}
+
+.input-hide {
+    display: none;
+}
+
+/* issue with text length of 'download' in button type submit  */
+.center {
+    padding-left: 11.5px; 
+}
+
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+    .button {
+        margin: 0; 
+        margin-top: 7px;
+    }
+    .buttons {
+        max-width: 992px;
+    }
+    .buttons-container{
+        min-height: 120px; 
+        background-image: linear-gradient(
+            to bottom,
+            rgba(20,25,30) 4%, 
+            rgba(5,10,15) 8%,
+            rgba(5,10,15)
+        ); 
+    }
+}
+
+@media (min-width: 992px) { 
+    
+}

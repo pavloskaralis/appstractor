@@ -12,7 +12,7 @@ app.use(methodOverride('_method'));
 app.use(express.urlencoded({limit: '50mb', extended: true}));
 app.use(express.json({limit: '50mb', extended: true}));
 
-app.use('/appstractor', appstractorController);
+app.use('/', appstractorController);
 
 //Listen
 app.listen(port, (req,res) => console.log('listening'));

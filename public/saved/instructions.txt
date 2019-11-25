@@ -1,4 +1,4 @@
-If the PNG files fails to download, the following steps instruct how to manually convert the accompanying html file:
+If the png file fails to download, the following steps instruct how to manually convert the accompanying html file:
 
 1. Open chrome browser.
 2. Install the Full Page Screen Capture extension: https://chrome.google.com/webstore/detail/full-page-screen-capture/fdpohaocaechififmbbbbbknoalclacl?hl=en

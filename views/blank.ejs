@@ -199,7 +199,7 @@
         addEventListeners () {
             $('#link',parent.document).on('click', () => {
                 this.source = 'link';
-                $('#shared-input',parent.document).val('').attr('placeholder','Paste HTML Link');
+                $('#shared-input',parent.document).val('').attr('placeholder','Paste HTTP Link');
                 $('#shared-panel',parent.document).css('display','inherit');
                 setTimeout( ()=> $('#shared-input',parent.document).focus(), 0);
             });

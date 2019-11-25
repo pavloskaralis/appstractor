@@ -2,6 +2,6 @@ If the png file fails to download, the following steps instruct how to manually 
 
 1. Open chrome browser.
 2. Install the Full Page Screen Capture extension: https://chrome.google.com/webstore/detail/full-page-screen-capture/fdpohaocaechififmbbbbbknoalclacl?hl=en
-3. Open the HTML file in chrome browser.
+3. Open the html file in chrome browser.
 4. Alt + Shift + P (Windows) or Option + Shift + P (Mac) to capture browser.
 5. Wait for capture to finish, then download.

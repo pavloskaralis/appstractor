@@ -30,7 +30,7 @@ const currentUser = {username: 'Username', email: 'first.last@gmail.com', passwo
         Appstraction.find({user: currentUser.username}, (err, data) => {
             //data passed for length and id tracking within script; username used to located correct png for download
             data.length > 0 ? 
-            res.render('show.ejs',{data: data}) : res.render('show.ejs',{data: ''});
+                res.render('show.ejs',{data: data}) : res.render('heroku_show.ejs'); 
         });
     });
 
@@ -39,8 +39,7 @@ const currentUser = {username: 'Username', email: 'first.last@gmail.com', passwo
         //data[req.params.index] could have been used, though ID is more concrete and provides uniformity since delete route requires ID
         Appstraction.findById(req.params.id, (err, doc) => {
             //doc passed to retrieve html content of saved appstraction
-            doc.length > 0 ?
-                res.render('saved.ejs',{doc: doc}) : res.render('saved.ejs', {doc: ''}); 
+            res.render('saved.ejs',{doc: doc});
         });
     }); 
 

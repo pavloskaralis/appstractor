@@ -55,7 +55,7 @@ const currentUser = {username: 'Username', email: 'first.last@gmail.com', passwo
     router.post('/saved/:id', (req, res) => {
             //capture chrome makes a get request to /saved/:id
             capture({
-                url: `http://localhost:3000/appstractor/saved/${req.params.id}`,
+                url: `http://localhost:3000/saved/${req.params.id}`,
                 width: 3600,
                 height: 2400,
                 }).then(screenshot => {

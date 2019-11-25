@@ -31,9 +31,9 @@
     <!-- fixed navigation-->
     <div class="nav-container">
         <nav>
-            <a href="/appstractor" class="logo-icon">&nbspA&nbsp</a>
-            <a href="/appstractor/new">Render</a>    
-            <a href="/appstractor/show" class="active">Gallery</a>   
+            <a href="/" class="logo-icon">&nbspA&nbsp</a>
+            <a href="/new">Render</a>    
+            <a href="/show">Gallery</a>   
             <a href="#">Sign Out</a>
         </nav>
     </div>
@@ -113,7 +113,7 @@
                 this.docIDs.pop();
                 this.removeDataDivs();
                 //loads first doc if it exists
-                this.dataLength > 0 ? $('iframe').attr('src',`/appstractor/saved/${this.docIDs[this.currentIndex]}`) : null;
+                this.dataLength > 0 ? $('iframe').attr('src',`/saved/${this.docIDs[this.currentIndex]}`) : null;
                 //disables buttons on load in if gallery is empty
                 this.dataLength < 1 ? $('.button',parent.document).css('opacity','.5').css('pointer-events','none') : null;
                 //updates actions if docs exist 
@@ -135,9 +135,9 @@
             }
             //syncs forms with current iframe index
             updateFormActions () {
-                $('#download-form').attr('action',`/appstractor/saved/${this.docIDs[this.currentIndex]}`);
-                $('#delete-form').attr('action',`/appstractor/saved/${this.docIDs[this.currentIndex]}/?_method=DELETE`);
-                $('#save-form').attr('action',`/appstractor/saved/${this.docIDs[this.currentIndex]}/?_method=PUT`);
+                $('#download-form').attr('action',`/saved/${this.docIDs[this.currentIndex]}`);
+                $('#delete-form').attr('action',`/saved/${this.docIDs[this.currentIndex]}/?_method=DELETE`);
+                $('#save-form').attr('action',`/saved/${this.docIDs[this.currentIndex]}/?_method=PUT`);
             }
             //prevents fast clicking
             lockArrows = () => {
@@ -161,7 +161,7 @@
             toggleIframes = () => { 
                 //conditional prevents non disruptive error 
                 const $iframe = this.dataLength > 0 ? 
-                    $('<iframe>').attr('src',`/appstractor/saved/${this.docIDs[this.currentIndex]}`) : $('<iframe>').attr('src','');
+                    $('<iframe>').attr('src',`/saved/${this.docIDs[this.currentIndex]}`) : $('<iframe>').attr('src','');
                 $iframe.insertAfter($('iframe'));
                 //prevents fast clicking from causing population error
                 setTimeout(()=> {

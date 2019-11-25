@@ -30,6 +30,7 @@ const currentUser = {username: 'Username', email: 'first.last@gmail.com', passwo
         Appstraction.find({user: currentUser.username}, (err, data) => {
             //data passed for length and id tracking within script; username used to located correct png for download
             // data.length > 0 ? : res.render('heroku_show.ejs'); 
+                //data[0].user created error on heroku when data.length === 0 
                 res.render('show.ejs',{data: data, user: currentUser.username}) 
         });
     });

@@ -29,7 +29,8 @@ const currentUser = {username: 'Username', email: 'first.last@gmail.com', passwo
     router.get('/show', (req,res) => {
         Appstraction.find({user: currentUser.username}, (err, data) => {
             //data passed for length and id tracking within script; username used to located correct png for download
-            res.render('show.ejs',{data: data});
+            data.length > 0 ? 
+            res.render('show.ejs',{data: data}) : res.render('show.ejs',{data: ''});
         });
     });
 

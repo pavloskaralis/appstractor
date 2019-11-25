@@ -27,10 +27,10 @@ const currentUser = {username: 'Username', email: 'first.last@gmail.com', passwo
 
     //Show + Edit 
     router.get('/show', (req,res) => {
-        // Appstraction.find({user: currentUser.username}, (err, data) => {
+        Appstraction.find({user: currentUser.username}, (err, data) => {
             //data passed for length and id tracking within script; username used to located correct png for download
             res.render('show.ejs',{data: data});
-        // });
+        });
     });
 
     //Iframe within Show + Edit

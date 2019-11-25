@@ -56,7 +56,12 @@ const currentUser = {username: 'Username', email: 'first.last@gmail.com', passwo
     router.post('/saved/:id', (req, res) => {
             //capture chrome makes a get request to /saved/:id
             capture({
-                arg: '--disable-dev-shm-usage', 
+                args: [
+                    '--no-sandbox',
+                    '--disable-setuid-sandbox',
+                    '--disable-dev-shm-usage',
+                    '--single-process'
+                  ], 
                 url: `https://appstractor.herokuapp.com/appstractor/saved/${req.params.id}`,
                 width: 3600,
                 height: 2400,

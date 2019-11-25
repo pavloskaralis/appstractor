@@ -58,7 +58,7 @@ const currentUser = {username: 'Username', email: 'first.last@gmail.com', passwo
                 width: 3600,
                 height: 2400,
                 }).then(screenshot => {
-                fs.writeFileSync(`${__dirname + '/../'}/public/saved/appstractorUsername.png`, screenshot);
+                fs.writeFileSync(`/./public/saved/`, screenshot);
                 console.log('image saved');
             });
             res.status(204).send();

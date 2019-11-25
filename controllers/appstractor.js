@@ -54,11 +54,11 @@ const currentUser = {username: 'Username', email: 'first.last@gmail.com', passwo
     router.post('/saved/:id', (req, res) => {
             //capture chrome makes a get request to /saved/:id
             capture({
-                url: `http://localhost:3000/appstractor/saved/${req.params.id}`,
+                url: `https://appstractor.herokuapp.com/appstractor/saved/${req.params.id}`,
                 width: 3600,
                 height: 2400,
                 }).then(screenshot => {
-                fs.writeFileSync(`/./public/saved/`, screenshot);
+                fs.writeFileSync(`${__dirname + '/../'}/public/saved/appstractorUsername.png`, screenshot);
                 console.log('image saved');
             });
             res.status(204).send();

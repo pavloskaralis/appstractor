@@ -38,7 +38,8 @@ const currentUser = {username: 'Username', email: 'first.last@gmail.com', passwo
         //data[req.params.index] could have been used, though ID is more concrete and provides uniformity since delete route requires ID
         Appstraction.findById(req.params.id, (err, doc) => {
             //doc passed to retrieve html content of saved appstraction
-            res.render('saved.ejs',{doc: doc});
+            doc.length > 0 ?
+                res.render('saved.ejs',{doc: doc}) : res.render('saved.ejs', {doc: ''}); 
         });
     }); 
 

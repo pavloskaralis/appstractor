@@ -29,9 +29,8 @@ const currentUser = {username: 'Username', email: 'first.last@gmail.com', passwo
     router.get('/show', (req,res) => {
         Appstraction.find({user: currentUser.username}, (err, data) => {
             //data passed for length and id tracking within script; username used to located correct png for download
-            // data.length > 0 ? : res.render('heroku_show.ejs'); 
-                //data[0].user created error on heroku when data.length === 0 
-                res.render('show.ejs',{data: data, user: currentUser.username}) 
+            //data[0].user created error on heroku when data.length === 0; switched to currentUser.username
+            res.render('show.ejs',{data: data, user: currentUser.username}) 
         });
     });
 
@@ -56,7 +55,7 @@ const currentUser = {username: 'Username', email: 'first.last@gmail.com', passwo
     router.post('/saved/:id', (req, res) => {
             //capture chrome makes a get request to /saved/:id
             capture({
-                url: `https://appstractor.herokuapp.com/appstractor/saved/${req.params.id}`,
+                url: `http://localhost:3000/appstractor/saved/${req.params.id}`,
                 width: 3600,
                 height: 2400,
                 }).then(screenshot => {

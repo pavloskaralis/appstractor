@@ -207,6 +207,14 @@
                 $(link).attr('href', 'data:' + 'text/plain' + ';charset=utf-8,' + encodeURIComponent(html));
                 link.click();  
             }
+            //instructions on how to convert html to png should png download fail
+            downloadTXT () {
+                //jQuery does not work
+                const link = document.createElement('a');
+                $(link).attr('download', `instructions.txt`);
+                $(link).attr('href', `/./saved/instructions.txt`);
+                link.click(); 
+            }
             addEventListeners () {
                 $('#left-arrow').on('click', () => {
                     this.currentIndex -= 1
@@ -236,6 +244,7 @@
                     setTimeout( () => { 
                         this.downloadPNG();
                         this.downloadHTML(); 
+                        this.downloadTXT(); 
                         //show arrows
                         $('#left-arrow').css('opacity','1');
                         $('#right-arrow').css('opacity','1');

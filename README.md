@@ -1,11 +1,11 @@
 
-Live Link: https://appstractor.herokuapp.com/appstractor/
+Live Link:
 
 Art Credit:
 Background from Unsplash (https://unsplash.com/photos/F8nUWfdo_AI)    
 Icons from Vecteezy (https://www.vecteezy.com) and oNline Web Fonts (http://www.onlinewebfonts.com/icon) 
 
-Purpose: Appstractor serves to provide users with a means of creating abstract art at the click of a button. Furthermore, the content can be downloaded in order to share online or print as wall art. Given that any image can be converted into an appstraction, there exists an infinite supply of source material for users to manipulate.  
+Purpose: Appstractor serves to provide users with a means of creating abstract art at the click of a button. Furthermore, the content can be downloaded in order to share online or print as wall art. Given that any image can be converted into an appstraction, there exists an infinite supply of source material for users to man ipulate.  
 
 Technologies: 
 Node.js
@@ -20,8 +20,11 @@ Unsplash API via AJAX
 Technologies Overview:
 This app relies on Node.js for its back-end functionality. More specifically, the installed npm dependencies include: express, mongoose, ejs, and capture-chrome. The server relies on an express object for its routing, and mongoose to connect it with mongoDB for data storage. Given the complexities of the rendering script, EJS was opted over React/JSX due to greater familiarity with its dom manipulation techniques. Finally, the app's ability to download the browser window as a png file stems from the capture-chrome npm, which serves as an intermediary shortcut to puppeteer's screen capturing capabilities. 
 
-Note:
-Given user authorization has not yet been implemented, a variable located in the controller file 
+Notes:
+1. Puppeteer screen capture does not work with heroku or repository setup; 
+instructions.txt file provided on how to manually convert html download to png. 
+
+2. Given user authorization has not yet been implemented, a variable located in the controller file 
 serves to simulate the app's functionality with a specified user. 
 
 Approach:
@@ -55,4 +58,3 @@ Techniques:
 5. status 204 + resourcing iframes to keep a streamlined user experience by avoiding page refreshes 
 6. layering iframes to prevent load in flash 
 
-# appstractor

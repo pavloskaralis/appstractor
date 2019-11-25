@@ -27,6 +27,8 @@ instructions.txt file provided on how to manually convert html download to png.
 2. Given user authorization has not yet been implemented, a variable located in the controller file 
 serves to simulate the app's functionality with a specified user. 
 
+3. To run locally, change const mongoose to require './db/connection.js' instead of './db/heroku.js'
+
 Approach:
 The app begins on the index route, which simply exists as a landing page. The page's script relies on setInterval() to continuously update the background.
 

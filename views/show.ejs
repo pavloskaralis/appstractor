@@ -146,7 +146,7 @@
                 setTimeout(()=> {
                     $('#left-arrow').css('pointer-events','auto');
                     $('#right-arrow').css('pointer-events','auto');
-                }, 200);
+                }, 250);
             }
             //prevents gallery from surpassing data length
             toggleArrows = () => {
@@ -168,7 +168,7 @@
                     for(let i = 0; i < $('iframe').length - 1; i++){
                         $('iframe').eq(i).remove()
                     }
-                }, 200); 
+                }, 250); 
             }
             disableButtons (num) {
                 $('#left-arrow').css('pointer-events','none');

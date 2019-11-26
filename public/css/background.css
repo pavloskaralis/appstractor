@@ -4,6 +4,9 @@ html {
     overflow: hidden;
 }
 
+body {
+    position: fixed;
+}
 /* new */
 .logo-container {
     display: flex;

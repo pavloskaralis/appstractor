@@ -7,8 +7,9 @@ html {
 /* new */
 .logo-container {
     display: flex;
+    align-self: center;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     position: absolute;
     height: 100%; 
 }

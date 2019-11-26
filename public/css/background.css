@@ -87,6 +87,16 @@ html {
     opacity: .35; 
 }
 
+@media (max-width: 499px) {
+    .logo {
+        font-size: 45px; 
+        width: 360px;
+    }
+    .image-grid {
+        width: 278%; 
+    }
+}
+
 @media (min-width: 576px) {
     .image-grid {
         width: 240%; 

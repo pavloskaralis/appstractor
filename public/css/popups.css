@@ -41,7 +41,7 @@
     background-color: white; 
     box-sizing: border-box;
     left: calc(50% - 80px);
-    top: 40px; 
+    top: 100px; 
     width: 160px; 
     height: 30px; 
     border-radius: 5px;
@@ -59,8 +59,16 @@
     100%{width: 100%;}
 }
 
+@media (max-width: 400px) {
+    #shared-input {
+        left: calc(50% - 53px);
+        width: 106px; 
+    }
+}
+
 @media (min-width: 768px) {
     #shared-input {
+        top: 40px; 
         left: calc(50% - 120px);
         width: 240px; 
     }

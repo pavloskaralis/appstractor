@@ -187,8 +187,11 @@ body {
 }
 
 
-@media (min-width: 576px) {
-
+@media (max-width: 400px) {
+    .button {
+        margin: 0 10px; 
+        margin-top: 7px;
+    }
 }
 
 @media (min-width: 768px) {

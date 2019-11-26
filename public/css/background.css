@@ -11,7 +11,7 @@ html {
     flex-direction: column;
     justify-content: center;
     position: absolute;
-    height: 100%; 
+    height: 100vh; 
 }
 
 .logo {
@@ -47,7 +47,7 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 100%; 
+    height: 100vh; 
 }
 
 .logo-bg-color {

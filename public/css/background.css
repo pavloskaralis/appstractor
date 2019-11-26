@@ -43,6 +43,13 @@ html {
     animation-timing-function: linear;
 }
 
+.logo-bg-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%; 
+}
+
 .logo-bg-color {
     z-index: 2;
     background-color: rgba(5,10,15);

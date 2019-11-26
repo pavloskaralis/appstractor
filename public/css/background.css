@@ -14,9 +14,9 @@ html {
 }
 
 .logo {
-    top: calc(50% - 115px);
-    align-self: center;
-    position: absolute;
+    /* top: calc(50% - 115px); */
+    /* align-self: center; */
+    /* position: absolute; */
     z-index: 3;
     display:flex;
     flex-direction: column;

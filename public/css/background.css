@@ -1,12 +1,9 @@
 /* this file styles home page background */
 /* overwritten */
 html {
-    overflow: hidden;
+    overflow: hidden; 
 }
 
-body {
-    position: fixed;
-}
 /* new */
 .logo-container {
     display: flex;

@@ -96,14 +96,13 @@ html {
 
 @media (max-width: 499px) {
     .logo {
+        /* for mobile center */
+        padding-top: 40px; 
         font-size: 45px; 
         width: 360px;
     }
     .image-grid {
         width: 278%; 
-    }
-    .logo-bg-color{
-        min-height: 200px; 
     }
 }
 

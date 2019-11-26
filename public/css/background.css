@@ -102,6 +102,9 @@ html {
     .image-grid {
         width: 278%; 
     }
+    .logo-bg-color{
+        min-height: 200px; 
+    }
 }
 
 @media (min-width: 576px) {

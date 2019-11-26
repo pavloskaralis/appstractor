@@ -7,7 +7,7 @@ html {
 /* new */
 .logo-container {
     display: flex;
-    width: 100%; 
+    align-self: center;
     flex-direction: column;
     justify-content: center;
     position: absolute;
@@ -51,7 +51,6 @@ html {
 }
 
 .logo-bg-color {
-    margin-top: calc(50vh - 120px); 
     z-index: 2;
     background-color: rgba(5,10,15);
     box-sizing: border-box;

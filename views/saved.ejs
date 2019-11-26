@@ -7,7 +7,7 @@
     <!-- capture chrome has cache issue -->
     <!-- <meta http-equiv="Cache-control" content="no-cache"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <title>Saved</title>
+    <title>Appstractor Saved</title>
     <!-- style must be in body to render html download -->
     <style>
         html, body, #overlay, .top-canvas, .bottom-canvas, .background-canvas {
@@ -48,22 +48,6 @@
     <div id="dom">
         <%= doc.dom %>
     </div>
-    <script>
-        //too short to use class
-        const renderSaved = () => {
-            //create a new body; jQuery causes non-disruptive error
-            const parse = document.createElement('body');
-            //set new body's html via .text() to parse data string 
-            $(parse).html($('#dom').text());
-            //remove <script> from new body 
-            $(parse).children().eq(3).remove();
-            //add new body; jQuery causes non-disruptive error
-            document.querySelector('html').appendChild(parse);
-            //remove initial body
-            $('#old').remove();
-        }
-        renderSaved();
-    </script>
+    <script type="text/javascript" src="/../js/saved.js"> </script>
 </body>
-
 </html>

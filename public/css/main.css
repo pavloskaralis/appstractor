@@ -193,7 +193,7 @@ body {
         margin-top: 7px;
     }
     body {
-        overflow: hidden;
+        -webkit-overflow-scrolling: none;
     }
 }
 

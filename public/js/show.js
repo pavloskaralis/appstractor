@@ -87,6 +87,7 @@ class Gallery {
         setTimeout( () => {
             $('#left-arrow').css('pointer-events','auto').css('opacity','1');
             $('#right-arrow').css('pointer-events','auto').css('opacity','1');
+            this.toggleSkip();
             //buttons remain disabled when gallery fully empties
             this.dataLength > 0 ? 
                 $('.button').css('opacity','1').css('pointer-events','auto') : null; 
@@ -148,6 +149,8 @@ class Gallery {
             //disable arrows
             $('#left-arrow').css('pointer-events','none').css('opacity','0');
             $('#right-arrow').css('pointer-events','none').css('opacity','0');
+            //disable skip
+            $('#skip-form').css('display','none');
             //toggle conditional
             $('#edit-panel').css('display') === 'none' ?
                 $('#edit-panel').css('display','inherit') : $('#edit-panel').css('display','none');
@@ -160,6 +163,8 @@ class Gallery {
             //also hide arrows
             $('#left-arrow').css('opacity','0');
             $('#right-arrow').css('opacity','0');
+            //hide skip
+            $('#skip-form').css('display','none');
             //delayed to allow time for page to be captured as png before download
             setTimeout( () => { 
                 this.downloadPNG();
@@ -168,6 +173,8 @@ class Gallery {
                 //show arrows
                 $('#left-arrow').css('opacity','1');
                 $('#right-arrow').css('opacity','1');
+                //show skip
+                $('#skip-form').css('display','inherit');
             },7500);
         });
         //also submits current index to delete route
@@ -205,7 +212,7 @@ class Gallery {
         });
         //passes iframe body html to POST/save route 
         $('#save').on('click', () => {
-            $('input').val($('iframe').contents().find('html').html());
+            $('#save-input').val($('iframe').contents().find('html').html());
             this.disableButtons(500);
             setTimeout( ()=> $('#edit-panel').css('display','none'), 500);
         }); 

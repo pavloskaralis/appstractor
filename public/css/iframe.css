@@ -79,6 +79,7 @@ iframe {
     margin-left: 3px; 
     padding-top: 2px;  
     color: black;
+    cursor: pointer;
 }
 
 #skip-input:focus, #skip-input:hover, #skip-submit:hover  {

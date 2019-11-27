@@ -102,7 +102,7 @@ class Gallery {
     notFound () {
         $('#skip-input').val(null);
         $('#skip-input').attr('placeholder','Not Found');
-        setTimeout(()=> this.toggleSkip, 1000)
+        setTimeout(()=> this.toggleSkip(), 1000)
     }
     //image download function
     downloadPNG () {

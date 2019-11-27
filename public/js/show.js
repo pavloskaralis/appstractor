@@ -100,8 +100,9 @@ class Gallery {
     }
     //update skip input if index does not exist 
     notFound () {
-        $('#skip-input').val('Not Found');
-        setTimeout(()=> $('#skip-input').val(null), 1000)
+        $('#skip-input').val(null);
+        $('#skip-input').attr('placeholder','Not Found');
+        setTimeout(()=> this.toggleSkip, 1000)
     }
     //image download function
     downloadPNG () {

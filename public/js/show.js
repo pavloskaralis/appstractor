@@ -2,7 +2,7 @@ class Gallery {
     constructor() {
         this.currentIndex = 0
         // script tracks data length for rendering iframe arrows based on index
-        this.dataLength = $('#length').text();
+        this.dataLength = parseFloat($('#length').text());
         // script tracks doc ids for unique file naming 
         this.docIDs = $('#docIDs').text().split(',');
         // tracks username to download correct file 
@@ -16,10 +16,11 @@ class Gallery {
         //loads first doc if it exists
         this.dataLength > 0 ? $('iframe').attr('src',`/saved/${this.docIDs[this.currentIndex]}`) : null;
         //disables buttons on load in if gallery is empty
-        this.dataLength < 1 ? $('.button',parent.document).css('opacity','.5').css('pointer-events','none') : null;
+        this.dataLength < 1 ? $('.button').css('opacity','.5').css('pointer-events','none') : null;
         //updates actions if docs exist 
         this.dataLength > 0 ? this.updateFormActions() :  null;
-        this.toggleArrows();    
+        this.toggleArrows();
+        this.toggleSkip();   
         this.addEventListeners();
     }
     //removes invisible divs that transfer data to script
@@ -28,17 +29,19 @@ class Gallery {
         $('#docIDs').remove();
     }
     //groups all non destructive update methods
-    updateGallery () {
+    updateGallery (index) {
         this.updateFormActions(); 
         this.lockArrows(); 
-        this.toggleIframes();
+        this.toggleIframes(index);
         this.toggleArrows();
+        this.toggleSkip();
     }
     //syncs forms with current iframe index
     updateFormActions () {
         $('#download-form').attr('action',`/saved/${this.docIDs[this.currentIndex]}`);
         $('#delete-form').attr('action',`/saved/${this.docIDs[this.currentIndex]}/?_method=DELETE`);
         $('#save-form').attr('action',`/saved/${this.docIDs[this.currentIndex]}/?_method=PUT`);
+        $('#skip-input').val(null);
     }
     //prevents fast clicking
     lockArrows = () => {
@@ -59,10 +62,11 @@ class Gallery {
             $('#right-arrow').css('display','none') : $('#right-arrow').css('display','');
     }
     //prevents blank container on load in
-    toggleIframes = () => { 
+    toggleIframes = (index) => { 
+        index = index || this.currentIndex;
         //conditional prevents non disruptive error 
         const $iframe = this.dataLength > 0 ? 
-            $('<iframe>').attr('src',`/saved/${this.docIDs[this.currentIndex]}`) : $('<iframe>').attr('src','');
+            $('<iframe>').attr('src',`/saved/${this.docIDs[index]}`) : $('<iframe>').attr('src','');
         $iframe.insertAfter($('iframe'));
         //prevents fast clicking from causing population error
         setTimeout(()=> {
@@ -70,6 +74,11 @@ class Gallery {
                 $('iframe').eq(i).remove()
             }
         }, 200); 
+    }
+    //enables skip button based on data length
+    toggleSkip () {
+        this.dataLength > 0 ? $('#skip-input').attr('placeholder',`${this.currentIndex + 1} of ${this.dataLength}`) : null; 
+        this.dataLength > 0 ? $('#skip-form').css('display','inherit') : $('#skip-form').css('display','none'); 
     }
     disableButtons (num) {
         $('#left-arrow').css('pointer-events','none');
@@ -83,13 +92,15 @@ class Gallery {
                 $('.button').css('opacity','1').css('pointer-events','auto') : null; 
         },num);
     }
-    loadingBar () {
-        $('#load-bar-container').css('display','inherit');
-        $('#load-bar').addClass('load');
-        setTimeout( ()=> {
-            $('#load-bar-container').css('display','none');
-            $('#load-bar').removeClass('load');
-        }, 7500);
+    //update for gallery skip
+    skip () {
+        this.currentIndex = parseFloat($('#skip-input').val()) - 1;
+        this.updateGallery(parseFloat($('#skip-input').val()) - 1);
+    }
+    //update skip input if index does not exist 
+    notFound () {
+        $('#skip-input').val('Not Found');
+        setTimeout(()=> $('#skip-input').val(null), 1000)
     }
     //image download function
     downloadPNG () {
@@ -115,6 +126,14 @@ class Gallery {
         $(link).attr('download', `instructions.txt`);
         $(link).attr('href', `/./saved/instructions.txt`);
         link.click(); 
+    }
+    loadingBar () {
+        $('#load-bar-container').css('display','inherit');
+        $('#load-bar').addClass('load');
+        setTimeout( ()=> {
+            $('#load-bar-container').css('display','none');
+            $('#load-bar').removeClass('load');
+        }, 7500);
     }
     addEventListeners () {
         $('#left-arrow').on('click', () => {
@@ -165,7 +184,7 @@ class Gallery {
             //forces update to wait until properties are updated to prevent incorrect render
             setTimeout(()=> this.updateGallery(), 0); 
         }); 
-        $('#detail',parent.document).on('click', () => {
+        $('#detail').on('click', () => {
             const $iframe = $('iframe').contents();
             //remove transition animation
             $iframe.find('.cell').css('transition','');
@@ -176,7 +195,7 @@ class Gallery {
             $iframe.find('.background-canvas').css('background-size') === 'cover' ?
                 $iframe.find('.background-canvas').css('background-size','10000%') : $iframe.find('.background-canvas').css('background-size','cover');
         });
-        $('#shadow',parent.document).on('click', () => {
+        $('#shadow').on('click', () => {
             const $iframe = $('iframe').contents();
             //remove transition animation
             $iframe.find('.cell').css('transition','');
@@ -185,11 +204,16 @@ class Gallery {
                 $iframe.find('.cell').css('box-shadow','-2.5px 5px 25px 0px rgba(0,0,0,.55)') : $iframe.find('.cell').css('box-shadow','none');
         });
         //passes iframe body html to POST/save route 
-        $('#save',parent.document).on('click', () => {
+        $('#save').on('click', () => {
             $('input').val($('iframe').contents().find('html').html());
             this.disableButtons(500);
             setTimeout( ()=> $('#edit-panel').css('display','none'), 500);
         }); 
+        $('#skip-submit').on('click', () => {
+           (parseFloat($('#skip-input').val()) > 0) && (parseFloat($('#skip-input').val()) <= this.dataLength) ? 
+                this.skip() : this.notFound();
+            return false; 
+        });
     }
 }
 const gallery = new Gallery;

@@ -52,6 +52,42 @@ iframe {
     transition: .5s; 
 }
 
+#skip-form {
+    z-index: 4;
+    position: absolute;
+    bottom: 8px;  
+    left: calc(50% - 67.5px);  
+    display: none;
+}
+
+#skip-input {
+    z-index: 4;
+    box-sizing: border-box;
+    width: 90px; 
+    height: 30px; 
+    border-radius: 5px;
+    text-align: center;
+    font-family: Helvetica;
+    border: white 2px solid;
+}
+
+#skip-submit {
+    height: 30px; 
+    border-radius: 5px;
+    border: 2px white solid; 
+    font-family: Helvetica;
+    box-sizing: border-box;
+    margin-left: 2px; 
+    padding-top: 2px;  
+    color: black;
+}
+
+#skip-input:focus, #skip-input:hover, #skip-submit:hover  {
+    outline: none;
+    border: rgb(255, 105, 170) 2px solid;
+    transition: .5s; 
+}
+
 @media (min-width: 400px) {
     .iframe-container {
         min-width: 360px; 

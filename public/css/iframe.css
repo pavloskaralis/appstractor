@@ -60,24 +60,22 @@ iframe {
     display: none;
 }
 
-#skip-input {
-    z-index: 4;
+#skip-input, #skip-submit {
+    background-color: white;
     box-sizing: border-box;
-    width: 90px; 
     height: 30px; 
     border-radius: 5px;
     text-align: center;
     font-family: Helvetica;
     border: white 2px solid;
 }
+#skip-input {
+    box-sizing: border-box;
+    width: 90px; 
+}
 
 #skip-submit {
-    height: 30px; 
-    border-radius: 5px;
-    border: 2px white solid; 
-    font-family: Helvetica;
-    box-sizing: border-box;
-    margin-left: 2px; 
+    margin-left: 4px; 
     padding-top: 2px;  
     color: black;
 }

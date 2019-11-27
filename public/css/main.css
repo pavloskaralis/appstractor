@@ -192,9 +192,6 @@ body {
         margin: 0 10px; 
         margin-top: 7px;
     }
-    body {
-        -webkit-overflow-scrolling: none;
-    }
 }
 
 @media (min-width: 768px) {

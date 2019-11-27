@@ -192,6 +192,9 @@ body {
         margin: 0 10px; 
         margin-top: 7px;
     }
+    body {
+        overflow: hidden;
+    }
 }
 
 @media (min-width: 768px) {

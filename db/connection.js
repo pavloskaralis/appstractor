@@ -1,6 +1,6 @@
 // for local connection
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb://localhost:27017/' + 'appstraction';
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/' + 'appstraction';
 
 mongoose.connect(mongoURI);
 mongoose.Promise = Promise;

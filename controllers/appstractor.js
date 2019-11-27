@@ -27,8 +27,8 @@ const currentUser = {username: 'Username', email: 'first.last@gmail.com', passwo
 
     //Show + Edit 
     router.get('/show', (req,res) => {
-        //sorted by creation
-        Appstraction.find({user: currentUser.username}, null, {sort: {createdAt: 1}}, (err, data) => {
+        //sorted by creation to have most recent appears first
+        Appstraction.find({user: currentUser.username}, null, {sort: {createdAt: -1}}, (err, data) => {
             //data passed for length and id tracking within script; username used to located correct png for download
             //data[0].user created error on heroku when data.length === 0; switched to currentUser.username
             res.render('show.ejs',{data: data, user: currentUser.username}) 

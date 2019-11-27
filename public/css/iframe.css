@@ -69,6 +69,7 @@ iframe {
     font-family: Helvetica;
     border: white 2px solid;
     outline: none;
+    text-align: center;
     width: 70px; 
 }
 #skip-input {

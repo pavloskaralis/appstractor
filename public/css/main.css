@@ -175,6 +175,7 @@ body {
     display: flex; 
     flex-direction: row;
     justify-content: center;
+    max-width: 87px; 
 }
 
 .input-hide {

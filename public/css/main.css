@@ -175,6 +175,8 @@ body {
     display: flex; 
     flex-direction: row;
     justify-content: center;
+    max-width: 87px;
+    margin: 0 20px; 
 }
 
 .input-hide {
@@ -191,12 +193,18 @@ body {
         margin: 0 10px; 
         margin-top: 7px;
     }
+    .button-form {
+        margin: 0 10px; 
+    }
 }
 
 @media (min-width: 768px) {
     .button {
         margin: 0; 
         margin-top: 7px;
+    }
+    .button-form {
+        margin: 0; 
     }
     .buttons {
         max-width: 992px;

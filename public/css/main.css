@@ -175,7 +175,6 @@ body {
     display: flex; 
     flex-direction: row;
     justify-content: center;
-    max-width: 87px; 
 }
 
 .input-hide {
@@ -186,7 +185,6 @@ body {
 .center {
     padding-left: 11.5px; 
 }
-
 
 @media (max-width: 400px) {
     .button {
@@ -214,6 +212,3 @@ body {
     }
 }
 
-@media (min-width: 992px) { 
-    
-}

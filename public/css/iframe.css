@@ -56,7 +56,7 @@ iframe {
     z-index: 4;
     position: absolute;
     bottom: 8px;  
-    left: calc(50% - 73.5px);  
+    left: calc(50% - 73px);  
     display: none;
 }
 

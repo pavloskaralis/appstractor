@@ -119,7 +119,7 @@ class Canvas {
                 //cell width ratio
                 const flexBasis =  ["25","100"];
                 //cell background image positioning
-                const backgroundX = [xPos - 15, xPos, xPos + 15];
+                const backgroundX = [xPos - 50, xPos, xPos + 50];
                 const backgroundY = [yPos - 5, yPos, yPos + 5];
                 //create cell node
                 const $cell = $('<div>').addClass('cell');

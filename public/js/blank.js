@@ -55,6 +55,8 @@ class Canvas {
     }
 
     toggleImage (url) {
+        //remove tooltip
+        $('#tooltip-container',parent.document).css('display','none');
         //enables editing buttons once image is selected
         this.activateButtons();
         //updates background image url 
@@ -182,6 +184,15 @@ class Canvas {
     }
     //easier to access parent nodes from iframe, than iframe script from parent window
     addEventListeners () {
+        $('#tooltip-container',parent.document).on('click', () => {
+            if($('#tooltip-text',parent.document).css('opacity') === '0'){
+                $('#tooltip-image',parent.document).css('opacity','0');
+                $('#tooltip-text',parent.document).css('opacity','1');
+            }else{
+                $('#tooltip-image',parent.document).css('opacity','1');
+                $('#tooltip-text',parent.document).css('opacity','0');
+            }
+        })
         $('#link',parent.document).on('click', () => {
             this.source = 'link';
             $('#shared-input',parent.document).val('').attr('placeholder','Paste HTTP Link');

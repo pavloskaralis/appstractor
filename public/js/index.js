@@ -39,9 +39,14 @@ class Background {
                 this.unchanged[Math.floor(Math.random() * 67)] : this.unchanged[Math.floor(Math.random() * this.unchanged.length)];
             //selects random background 
             const num = Math.floor(Math.random() * 20) + 1; 
-            //brightness animation
-            $random.css('opacity', '.9').css('background-image', `url('./images/home${num}.png')`);
-            setTimeout(()=>$random.css('opacity', '.35').css('background-image', `url('./images/home${num}.png')`),1000);
+            //brightness animation with firefox conditional
+            if (typeof InstallTrigger !== 'undefined') {
+                $random.css('opacity', '.9');
+                setTimeout(()=>$random.css('opacity', '.35'),2000);
+            } else {
+                $random.css('opacity', '.9').css('background-image', `url('./images/home${num}.png')`);
+                setTimeout(()=>$random.css('opacity', '.35'),1000);
+            }
             //moves toggled image into changed array
             this.changed.push($random);
             this.unchanged.splice(this.unchanged.indexOf($random),1); 

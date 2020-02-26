@@ -135,7 +135,7 @@ class Gallery {
         setTimeout( ()=> {
             $('#load-bar-container').css('display','none');
             $('#load-bar').removeClass('load');
-        }, 7500);
+        }, 3000);
     }
     addEventListeners () {
         $('#left-arrow').on('click', () => {
@@ -160,7 +160,7 @@ class Gallery {
         $('#download').on('click', () => {
             // alert(this.currentIndex);
             this.loadingBar();
-            this.disableButtons(7500);
+            this.disableButtons(3000);
             //also hide arrows
             $('#left-arrow').css('opacity','0');
             $('#right-arrow').css('opacity','0');
@@ -176,7 +176,7 @@ class Gallery {
                 $('#right-arrow').css('opacity','1');
                 //show skip
                 $('#skip-form').css('display','inherit');
-            },7500);
+            },3000);
         });
         //also submits current index to delete route
         $('#delete').on('click', () => {

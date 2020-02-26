@@ -91,6 +91,8 @@ html {
     background-size: cover;
     background-position: center; 
     transition: 1.8s;
+    -webkit-transition: 1.8s;
+    -moz-transition: 1.8s;
     opacity: .35; 
 }
 

@@ -30,7 +30,7 @@
 .load {
     animation-name: load;
     /* capture chrome interupts after 6 seconds */
-    animation-duration: 7.5s;
+    animation-duration: 3s;
     animation-timing-function: linear;
 }
 

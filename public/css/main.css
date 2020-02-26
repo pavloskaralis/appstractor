@@ -188,13 +188,32 @@ body {
     padding-left: 11.5px; 
 }
 
+@-moz-document url-prefix() {
+    .center {
+        padding-left: 20px; 
+    }
+}
+
 @media (max-width: 400px) {
     .button {
+        max-width: 77px; 
         margin: 0 10px; 
         margin-top: 7px;
     }
     .button-form {
+        max-width: 77px; 
         margin: 0 10px; 
+    }
+    .buttons-container {
+        min-height: 180px; 
+    }
+    a {
+        font-size: 12px; 
+    }
+
+    .button-image {
+        width: 35px;
+        height: 35px; 
     }
 }
 

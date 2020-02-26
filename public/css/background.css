@@ -96,7 +96,21 @@ html {
     opacity: .35; 
 }
 
-@media (max-width: 499px) {
+@media (max-width: 400px) {
+    .logo {
+        font-size: 40px; 
+        width: 360px;
+        min-height: 180px; 
+    }
+    .logo-bg-color {
+        min-height: 180px; 
+    }
+    .image-grid {
+        width: 310%; 
+    }
+}
+
+@media (min-width: 400px) {
     .logo {
         font-size: 45px; 
         width: 360px;

@@ -43,16 +43,14 @@ html {
     animation-timing-function: linear;
 }
 
-@media not all and (min-resolution:.001dpcm)
-{ @supports (-webkit-appearance:none) {
-    .logo {
-        color: rgb(255, 105, 170) ;
-        text-shadow: -.25vw .25vw rgb(255, 230, 0);
-        -webkit-background-clip: none;
-        -webkit-text-fill-color:rgba(255, 105, 170);
-        background-image: none; 
-    }
-}}
+
+_::-webkit-full-page-media, _:future, :root .logo {
+    color: rgb(255, 105, 170) ;
+    text-shadow: -.25vw .25vw rgb(255, 230, 0);
+    -webkit-background-clip: none;
+    -webkit-text-fill-color:rgba(255, 105, 170);
+    background-image: none; 
+}
 
 
 .logo-bg-container {

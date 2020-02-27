@@ -7,6 +7,7 @@ class Gallery {
         this.docIDs = $('#docIDs').text().split(',');
         // tracks username to download correct file 
         this.user = $('#user').text().replace(/\s/g, '');
+        this
     }
     
     initialize () {
@@ -66,9 +67,14 @@ class Gallery {
     toggleIframes (index)  { 
         index = index || this.currentIndex;
         //conditional prevents non disruptive error 
-        const $iframe = this.dataLength > 0 ? 
-            $('<iframe>').attr('src',`/saved/${this.docIDs[index]}`) : $('<iframe>').attr('src','');
+        let $iframe = $('<iframe>');
         $iframe.insertAfter($('iframe'));
+
+        this.dataLength > 0 ? 
+        $iframe.attr('src',`/saved/${this.docIDs[index]}`) : $iframe.attr('src','');
+
+
+       
         //prevents fast clicking from causing population error
         setTimeout(()=> {
             for(let i = 0; i < $('iframe').length - 1; i++){

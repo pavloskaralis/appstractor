@@ -115,7 +115,6 @@ class Gallery {
     }
     //html download function 
     downloadHTML () {
-        console.log('inside dl html')
         //jQuery does not work
         const link = document.createElement('a');
         const html = $('iframe').contents().find('html').html();

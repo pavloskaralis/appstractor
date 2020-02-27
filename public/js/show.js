@@ -8,7 +8,8 @@ class Gallery {
         // tracks username to download correct file 
         this.user = $('#user').text().replace(/\s/g, '');
     }
-    initialize = () => {
+    
+    initialize () {
         //removes first and last element arrays which store isolated enter characters
         this.docIDs.splice(0,1);
         this.docIDs.pop();
@@ -24,7 +25,7 @@ class Gallery {
         this.addEventListeners();
     }
     //removes invisible divs that transfer data to script
-    removeDataDivs = () => {
+    removeDataDivs () {
         $('#length').remove();
         $('#docIDs').remove();
     }
@@ -44,7 +45,7 @@ class Gallery {
         $('#skip-input').val(null);
     }
     //prevents fast clicking
-    lockArrows = () => {
+    lockArrows () {
         $('#left-arrow').css('pointer-events','none');
         $('#right-arrow').css('pointer-events','none');
         setTimeout(()=> {
@@ -53,7 +54,7 @@ class Gallery {
         }, 200);
     }
     //prevents gallery from surpassing data length
-    toggleArrows = () => {
+    toggleArrows  () {
         //no left arrow past index 0
         this.currentIndex === 0 ? 
             $('#left-arrow').css('display','none') : $('#left-arrow').css('display','');
@@ -62,7 +63,7 @@ class Gallery {
             $('#right-arrow').css('display','none') : $('#right-arrow').css('display','');
     }
     //prevents blank container on load in
-    toggleIframes = (index) => { 
+    toggleIframes (index)  { 
         index = index || this.currentIndex;
         //conditional prevents non disruptive error 
         const $iframe = this.dataLength > 0 ? 
@@ -114,6 +115,7 @@ class Gallery {
     }
     //html download function 
     downloadHTML () {
+        console.log('inside dl html')
         //jQuery does not work
         const link = document.createElement('a');
         const html = $('iframe').contents().find('html').html();
@@ -145,6 +147,7 @@ class Gallery {
         $('#right-arrow').on('click', () => {
             this.currentIndex += 1
             this.updateGallery();
+
         });
         $('#edit').on('click', () => {
             //disable arrows

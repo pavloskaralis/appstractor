@@ -40,7 +40,7 @@ class Background {
             //selects random background 
             const num = Math.floor(Math.random() * 20) + 1; 
             //brightness animation with firefox conditional
-            if (typeof InstallTrigger !== 'undefined') {
+            if (typeof InstallTrigger !== 'undefined' || (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1))  {
                 $random.css('opacity', '.9');
                 setTimeout(()=>$random.css('opacity', '.35'),2000);
             } else {
